@@ -1,0 +1,125 @@
+
+<html>
+<head>
+<title>Image Gallery</title>
+
+<style>
+body{
+    text-align:center;
+    font-family:Arial;
+    background-color:lightblue;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    width:80%;
+    margin:auto;
+}
+
+.gallery img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+.lightbox{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+}
+
+.lightbox img{
+    width:60%;
+    margin-top:50px;
+}
+
+</style>
+
+</head>
+<body>
+
+<h1>Image Gallery</h1>
+
+<div class="gallery">
+    <img src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg" onclick="openImg(this.src)">
+
+    <img src="https://img.magnific.com/free-photo/closeup-shot-beautiful-butterfly-with-interesting-textures-orange-petaled-flower_181624-7640.jpg?semt=ais_hybrid&w=740&q=80" onclick="openImg(this.src)">
+
+    <img src="https://cdn.pixabay.com/photo/2016/06/18/10/28/meadows-margerite-1464784_1280.jpg" onclick="openImg(this.src)">
+
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/054/876/032/small/mirror-image-snow-capped-mountain-peaks-reflected-in-pristine-lake-free-photo.jpg" onclick="openImg(this.src)">
+
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/057/068/323/small/single-fresh-red-strawberry-on-table-green-background-food-fruit-sweet-macro-juicy-plant-image-photo.jpg" onclick="openImg(this.src)">
+
+    <img src="https://c8.alamy.com/comp/CE77R3/close-up-of-golden-retriever-playing-with-stick-in-forest-CE77R3.jpg" onclick="openImg(this.src)">
+</div>
+
+<div class="lightbox" id="box" onclick="closeImg()">
+    <img id="bigImg">
+</div>
+
+<script>
+function openImg(src){
+    document.getElementById("box").style.display="block";
+    document.getElementById("bigImg").src=src;
+}
+
+function closeImg(){
+    document.getElementById("box").style.display="none";
+}
+</script>
+
+</body>
+</html>
+
+
+
+<html>
+<head>
+    <title>Digital Clock</title>
+    <style>
+        body{
+            text-align:center;
+            font-family:Arial;
+            margin-top:100px;
+        }
+
+        #clock{
+            font-size:40px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Digital Clock</h1>
+<div id="clock"></div>
+
+<script>
+function showTime(){
+    let time = new Date();
+    let h = time.getHours();
+    let m = time.getMinutes();
+    let s = time.getSeconds();
+
+    document.getElementById("clock").innerHTML =
+    h + ":" + m + ":" + s;
+}
+
+setInterval(showTime,1000);
+</script>
+
+</body>
+</html>
